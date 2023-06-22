@@ -1,16 +1,48 @@
 <script>
     //PROBLEMA: Viajar para algum lugar
-    //Peça para o usuário informar para qual estado deseja realizar a viagem. (Rio Grande do Sul-RS ou Minas Gerais-MG). Peça também para informar quantos dias ficará em viagem. O usuário também deverá informar "quantos dinheiros" (R$) possui para gastar na viagem.
+    //Peça para o usuário informar para qual estado deseja realizar a viagem. (Rio Grande do Sul-RS ou Minas Gerais-MG). 
+    //Peça também para informar quantos dias ficará em viagem. O usuário também deverá informar "quantos dinheiros" (R$) possui para gastar na viagem.
     
     //Considere que o custo diário de viagem para "RS" será de R$ 180,00 (180) e o custo diário de viagem para "MG" será de R$ 210,00 (210).
     
-    //Calcule se o usuário possui dinheiro suficiente para realizar a viagem para o destino que pretende. Se o usuário puder viajar, o programa apresentará a mensagem "Boa viagem" e quantos dias poderá ficar no destino, além de qual será o custo da viagem. Caso não possa viajar o programa apresentará a mensagem "Sem Férias" e também apresentará "quantos dinheiros" (R$) estão faltando para realizar a viagem.
+    //Calcule se o usuário possui dinheiro suficiente para realizar a viagem para o destino que pretende. Se o usuário puder viajar, 
+    //o programa apresentará a mensagem "Boa viagem" e quantos dias poderá ficar no destino, além de qual será o custo da viagem. 
+    //Caso não possa viajar o programa apresentará a mensagem "Sem Férias" e também apresentará "quantos dinheiros" (R$) 
+    //estão faltando para realizar a viagem.
 
     //ENTRADA
-
-
+    const viagem= prompt('para onde eseja realiar a viagem (MG ou RS)').toLocaleLowerCase().trim()
+    const dias= Number(prompt('informe quantos dias ficará na viagem'))
+    const dinheiro= Number('quantos dinheiro possui')
+    const custoRS= dias * 180
+    const custoMG = dias * 210
+    const poderRS= dinheiro / custoRS
+    const poderMG= dinheiro/ custoMG
+    const faltanteRS= dinheiro - custoRS
+    const faltanteMG= dinheiro - custoMG
+    const arredondamentoMG= Math.round(poderMG)
+    const arredondamentoRS= Math.round(poderRS)
     //PROCESSAMENTO
+    if(dinheiro > custoRS && viagem == 'RS'){
+        alert(`boa viagem`)
+        document.write(`voce podera ficar ${poderRS.toFixed(2).replace(',','.')} e o custo da viagem será de R$ ${custoRS.toFixed(2).replace(',','.')}`)
+    }
+    else if(dinheiro < custoRS && viagem == 'RS'){
+        alert(`Sem férias`)
+        document.write(`estão faltando R$ ${faltanteRS.toFixed(2).replace(',','.')}`)
+    }
+    else if(dinheiro > custoMG && viagem == 'MG'){
+        alert(`boa viagem`)
+        document.write(`${arredondamentoMG} e o custo da viagem será de R$ ${custoMG.toFixed(2).replace(',','.')}`)
 
+    }
+    else if(dinheiro < custoMG && viagem == 'MG'){
+        alert(`Sem férias`)
+        document.write(`estão faltando R$ ${faltanteMG.toFixed(2).replace(',','.')}`)
+    }
+    else{
+        alert('valor inválido')
+    }
 
     //SAÍDA
 

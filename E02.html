@@ -5,14 +5,27 @@
     //Melancia: 3 Kg
     //Abacate: 4 Unidades
     //Cebola: 1.1 Kg
-    //Peça para o usuário informar o preço do Kg ou da Unidade de cada um dos produtos que comprou (citados acima) e peça também para o usuário informar quanto dinheiro possui para realizar a compra.
-    //Calcule o custo total dos alimentos e verifique se há dinheiro suficiente para realizar a compra, indicando se sobrará ou faltará dinheiro, e também apresentando qual foi a quantia que sobrou ou faltou para realizar a compra. Apresente também na tela o valor total da compra.
+    //Peça para o usuário informar o preço do Kg ou da Unidade de cada um dos produtos que comprou 
+    //(citados acima) e peça também para o usuário informar quanto dinheiro possui para realizar a compra.
+    //Calcule o custo total dos alimentos e verifique se há dinheiro suficiente para realizar a compra, 
+    //indicando se sobrará ou faltará dinheiro, e também apresentando qual foi a quantia que sobrou ou faltou para realizar a compra. 
+    //Apresente também na tela o valor total da compra.
 
     //ENTRADA
-
-
+    const precoM=Number(prompt('informe o preço da unidade do mamão')).toFixed(2)
+    const precoMe=Number(prompt('informe o preço do kg da melancia ')).toFixed(2)
+    const precoA=Number(prompt('informe o preço da unidade do abacate')).toFixed(2)
+    const precoC=Number(prompt('informe o preço do kg da cebola')).toFixed(2)
+    const dinheiro= Number(prompt('informe quanto dinheiro possui')).toFixed(2)
+    const valortotal= (precoM * 5) + (precoMe * 3) + (precoA * 4) + (precoC * 1.1)
+    const faltante= valortotal - dinheiro
     //PROCESSAMENTO
-
+    if(dinheiro > valortotal){
+        alert(`voce consiguirá pagar e o valor total foi de R$ ${valortotal} e sobrou R$ ${faltante}`)
+    }
+    else{
+        alert(`voce não consiguira pagar pois o valor total da compra foi de R$ ${valortotal} e para realizar a sua comprar lhe faltou R$ ${faltante}`)
+    }
 
     //SAÍDA
 

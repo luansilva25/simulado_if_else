@@ -1,17 +1,40 @@
 <script>
     //PROBLEMA: Vínculo empregatício
-    //Peça para o usuário informar qual a sua remuneração mensal (salário). Peça também para o usuário informar qual cargo que ocupa e quantas horas trabalha por dia. Considere 20 dias de trabalho no mês.
+    //Peça para o usuário informar qual a sua remuneração mensal (salário). 
+    //Peça também para o usuário informar qual cargo que ocupa e quantas horas trabalha por dia. Considere 20 dias de trabalho no mês.
     //Se o usuário for "Estagiário", e trabalhar até 6 horas diárias (inclusive), o programa deverá informar quanto recebe por hora.
-    //Se o usuário for "Estagiário", e trabalhar mais que 6 horas diárias, o programa deverá apresentar a mensagem "Precisa ser contratado", além de calcular um adicional de 50% (50/100) na sua remuneração. Apresente também quanto recebe por hora, já com o adicional previsto.
+    //Se o usuário for "Estagiário", e trabalhar mais que 6 horas diárias, o programa deverá apresentar a mensagem "Precisa ser contratado", 
+    //além de calcular um adicional de 50% (50/100) na sua remuneração. Apresente também quanto recebe por hora, já com o adicional previsto.
     //Se o usuário for "Programador" e trabalhar até 8 horas diárias (inclusive), o programa deverá informar quanto recebe por hora.
-    //Se o usuário for "Programador" e trabalhar mais que 8 horas diárias, o programa deverá calcular um adicional de 30% (30/100) na sua remuneração. Apresente também quanto recebe por hora, já com o adicional previsto.
+    //Se o usuário for "Programador" e trabalhar mais que 8 horas diárias, o programa deverá calcular um adicional de 30% (30/100) na sua remuneração. 
+    //Apresente também quanto recebe por hora, já com o adicional previsto.
 
     //ENTRADA
-
-
+    const remuneração= Number(prompt('informe qual sua remuneração mensal'))
+    const cargo= prompt('informe em qual cargo ocupa')
+    const horas= Number('quantas horas trabalhadas')
+    const dinheiroporhora= (remuneração / 20) / horas
+    const aumento= remuneração + (remuneração * 0.50)
+    const dinheiroporhoraaumento= aumento / dinheiroporhora
+    const aumento2= remuneração+ (remuneração * 0.30)
+    const dinheiroporhoraaumento2= aumento2 / dinheiroporhora
     //PROCESSAMENTO
-
-
+    if(cargo == 'estagiário' && horas <= 6){
+        alert(`o usuario recebe R$ ${dinheiroporhora.toFixed(2).replace(',','.')}`)
+    }
+    else if(cargo == 'estagiário' && horas > 6){
+        alert(`Precisa de ser contratado`) 
+        alert(`usuario recebe R$ ${dinheiroporhoraaumento.toFixed(2).replace(',','.')}`)
+    }
+    else if(cargo == 'programador' && horas <= 8){
+        alert(`o usuario recebe R$ ${dinheiroporhora.toFixed(2).replace(',','.')}`)
+    }
+    else if(cargo == 'programador' && horas > 8){
+        alert(`o usuário recebe R$ $${dinheiroporhoraaumento2.toFixed(2).replace(',','.')}`)
+    }
+    else{
+        alert('valor invalido')
+    }
     //SAÍDA
 
 </script>
